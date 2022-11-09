@@ -1,5 +1,4 @@
-#include "structuri.h"
-#include "functii.h"
+#include "solutii.h"
 
 int main()
 {
