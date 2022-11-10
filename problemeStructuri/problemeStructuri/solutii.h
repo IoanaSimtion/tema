@@ -15,3 +15,13 @@ void sol1(){
 	cout << "Cea mai in varsta persoana este persona cu numarul " << persBatrana(aniversare, n);
 }
 
+//293: Se dau 4 numere naturale a b c d, reprezentând fracţiile a/b şi c/d.
+//Determinați și afișați cea mai mare dintre cele două fracții.
+
+void sol2() {
+	fractii fr1, fr2;
+	citireFractii(fr1, fr2);
+	simplificare(fr1.numarator, fr1.numitor);
+	simplificare(fr2.numarator, fr2.numitor);
+	cout << comparareFractii(fr1, fr2).numarator << ' ' << comparareFractii(fr1, fr2).numitor;
+}

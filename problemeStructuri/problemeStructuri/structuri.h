@@ -7,3 +7,8 @@ struct aniversari {
 	int luna;
 	int zi;
 };
+
+struct fractii {
+	int numarator;
+	int numitor;
+};

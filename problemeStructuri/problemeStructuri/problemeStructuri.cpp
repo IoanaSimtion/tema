@@ -2,5 +2,7 @@
 
 int main()
 {
-    sol1();
+    //sol1();
+    //cout << cmmdc(24,18);
+    sol2();
 }

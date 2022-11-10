@@ -76,6 +76,46 @@ int persBatrana(aniversari aniversare[], int d) {
 				}
 			}
 		}
-	}
+	} 
 	return indice;
+}
+
+//todo functie ce citeste 2 fractii
+
+void citireFractii(fractii& fractie1, fractii& fractie2) {
+	ifstream f("citireFractii.txt");
+	f >> fractie1.numarator;
+	f >> fractie1.numitor;
+	f >> fractie2.numarator;
+	f >> fractie2.numitor;
+}
+
+//todo functie ce compara 2 fractii
+
+fractii comparareFractii(fractii f1, fractii f2) {
+	if (f1.numarator / f1.numitor > f2.numarator / f2.numitor) {
+		return f1;
+	}
+	else {
+		return f2;
+	}
+}
+
+//todo functie ce returneaza cmmdc a doua numere
+
+int cmmdc(int a, int b) {
+	while (b) {
+		int r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
+}
+
+//todo functie ce simplifica o fractie 
+
+void simplificare(int& numarator, int& numitor) {
+	int divizor = cmmdc(numarator, numitor);
+	numarator = numarator / divizor;
+	numitor=numitor/divizor;
 }
