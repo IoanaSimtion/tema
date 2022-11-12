@@ -225,3 +225,42 @@ void maximAbsente(dateElevi elev[], int& a, int& b, int n) {
 		}
 	}
 }
+
+//todo functie ce citeste numărul de copii dintr-o grupă şi tipul de uniformă pe care aceştia îl poartă
+
+void citireCopiiUniforme(uniforme uniforma[], int& n, int& p) {
+	ifstream f("citireUniforme.txt");
+	f >> n >> p;
+	for (int i = 0; i < n; i++) {
+		f >> uniforma[i].copii;
+		f >> uniforma[i].tip;
+	}
+}
+
+//todo functie ce returneaza numarul de copii care poarta o uniforma
+
+int contorCopii(uniforme uniforma[], int tip, int n) {
+	int total = 0;
+	for (int i = 0; i < n; i++) {
+		if (uniforma[i].tip == tip) {
+			total = total + uniforma[i].copii;
+		}
+	}
+	return total;
+}
+
+//todo fucntie ce sorteaza tipurile de uniforme în ordinea descrescătoare a numărului total de copii ce poartă fiecare tip de uniformă
+
+void sortareDesc(uniforme uniforma[], int n) {
+	bool flag = 0;
+	do {
+		flag = 1;
+		for (int i = 0; i < n - 1; i++) {
+			if (contorCopii(uniforma, uniforma[i].tip, n) < contorCopii(uniforma, uniforma[i + 1].tip, n)) {
+				swap(uniforma[i].tip, uniforma[i + 1].tip);
+				swap(uniforma[i].copii, uniforma[i + 1].copii);
+				flag = 0;
+			}
+		}
+	} while (!flag);
+}

@@ -60,3 +60,22 @@ void sol4() {
 	cout << elevi[b].cod << ' ' << elevi[b].medie << ' ' << elevi[b].absente << endl;
 
 }
+
+/*1460: La o serbare sunt n grupe de copii care poartă p tipuri de uniforme.
+Scrieţi un program care să afişeze pe ecran tipurile de uniforme 
+în ordinea descrescătoare a numărului total de copii ce poartă fiecare tip de uniformă. 
+Afişarea se va face pe o singură linie, valoriile fiind separate printr-un spaţiu.*/
+
+void sol5() {
+	int n, p;
+	uniforme uniforma[100];
+	citireCopiiUniforme(uniforma, n, p);
+	//cout << contorCopii(uniforma, 2, n);
+	sortareDesc(uniforma, n);
+	for (int i = 0; i < n; i++) {
+		cout << uniforma[i].tip << ' ';
+		while (uniforma[i].tip == uniforma[i + 1].tip) {
+			i++;
+		}
+	}
+}

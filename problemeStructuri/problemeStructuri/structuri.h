@@ -23,3 +23,8 @@ struct dateElevi {
 	int medie;
 	int absente;
 };
+
+struct uniforme {
+	int copii;
+	int tip;
+};

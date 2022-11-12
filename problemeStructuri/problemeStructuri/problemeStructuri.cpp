@@ -6,8 +6,8 @@ int main()
     //cout << cmmdc(24,18);
     //sol2();
     //sol3();
-    sol4();
-
+    //sol4();
+    sol5();
 
 
 
