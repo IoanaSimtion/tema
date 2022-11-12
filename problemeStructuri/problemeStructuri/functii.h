@@ -264,3 +264,33 @@ void sortareDesc(uniforme uniforma[], int n) {
 		}
 	} while (!flag);
 }
+
+//todo functie ce citeste durata a 2 evenimente
+
+void citireDurata(program durata[]) {
+	ifstream f("citireProgram.txt");
+	f >> durata[0].ore;
+	f >> durata[0].minute;
+	f >> durata[0].secunde;	
+	f >> durata[1].ore;
+	f >> durata[1].minute;
+	f >> durata[1].secunde;
+}
+
+//todo functie ce returneaza durata corespunzatoare in secunde
+
+int durataSecunde(program durata) {
+	int secunde = 0;
+	secunde = durata.secunde + durata.minute * 60 + durata.ore * 3600;
+	return secunde;
+}
+
+//todo functie ce afiseaza suma obţinută din adunarea duratelor celor două evenimente
+
+void suma (int secunde1, int secunde2) {
+	int totalS = secunde1 + secunde2;
+	int s = totalS % 60;
+	int m = (totalS / 60) % 60;
+	int h = (totalS / 3600) % 60;
+	cout << h << ": " << m << ": " << s;
+}

@@ -79,3 +79,23 @@ void sol5() {
 		}
 	}
 }
+
+/*2004: Se consideră două evenimente a căror durată este exprimată fiecare prin câte trei numere naturale: 
+ore (h), minute (m) şi secunde (s).
+Să se scrie în fișierul de ieșire:
+a) pe primele două linii, duratele în formatul h: m: s
+b) pe următoarele două linii, duratele exprimate în secunde, corespunzătoare fiecărui
+eveniment, pe rânduri separate;
+c) pe următoarea linie suma obţinută din adunarea duratelor celor două evenimente, exprimată în
+ore, minute, secunde, în formatul h: m: s.*/
+
+void sol6() {
+	program durata[100];
+	citireDurata(durata);
+	for (int i = 0; i < 2; i++) {
+		cout << durata[i].ore << ": " << durata[i].minute << ": " << durata[i].secunde << endl;
+	}
+	cout << durataSecunde(durata[0]) << endl;
+	cout << durataSecunde(durata[1]) << endl;
+	suma(durataSecunde(durata[0]), durataSecunde(durata[1]));
+}

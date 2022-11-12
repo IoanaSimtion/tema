@@ -28,3 +28,9 @@ struct uniforme {
 	int copii;
 	int tip;
 };
+
+struct program {
+	int ore;
+	int minute;
+	int secunde;
+};
