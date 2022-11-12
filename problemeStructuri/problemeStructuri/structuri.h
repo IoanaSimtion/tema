@@ -12,3 +12,8 @@ struct fractii {
 	int numarator;
 	int numitor;
 };
+
+struct coordonate {
+	int x;
+	int y;
+};

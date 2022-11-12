@@ -1,6 +1,7 @@
 using namespace std;
 #include <iostream>
 #include <fstream>
+#include <math.h>
 #include "structuri.h"
 #pragma once
 
@@ -118,4 +119,48 @@ void simplificare(int& numarator, int& numitor) {
 	int divizor = cmmdc(numarator, numitor);
 	numarator = numarator / divizor;
 	numitor=numitor/divizor;
+}
+
+//todo functie ce citeste coordonatele a n puncte
+
+void citireCoordonate(coordonate puncte[], int& n) {
+	ifstream f("citireCoordonate.txt");
+	f >> n;
+	for (int i = 0; i < n; i++) {
+		f >> puncte[i].x;
+		f >> puncte[i].y;
+	}
+}
+
+//todo functie ce returneaza distanta dintre un punct si origine
+
+float distanta(coordonate punct) {
+	int a = pow(punct.x, 2);
+	int b = pow(punct.y, 2);
+	float d = sqrt(a + b);
+	return d;
+}
+
+//todo functie ce determina distanta maxima
+
+float distantaMaxima(coordonate punct[], int n) {
+	float max = 0;
+	for (int i = 0; i < n; i++) {
+		if (distanta(punct[i]) > max) {
+			max = distanta(punct[i]);
+		}
+	}
+	return max;
+}
+
+//todo functie ce returneaza nr de puncte ce au distanta maxima
+
+int ctDistMax(coordonate punct[], int n, float dMax) {
+	int ct = 0;
+	for (int i = 0; i < n; i++) {
+		if (distanta(punct[i]) == dMax) {
+			ct++;
+		}
+	}
+	return ct;
 }

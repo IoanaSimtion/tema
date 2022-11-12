@@ -25,3 +25,17 @@ void sol2() {
 	simplificare(fr2.numarator, fr2.numitor);
 	cout << comparareFractii(fr1, fr2).numarator << ' ' << comparareFractii(fr1, fr2).numitor;
 }
+
+
+/*922: Se dau coordonatele carteziene a n puncte în plan. 
+Să se determine distanța maximă dintre un punct dat și originea sistemului de coordonate 
+și numărul de puncte situate la acea distanță față de origine.*/
+
+void sol3() {
+	int n;
+	coordonate puncte[100];
+	citireCoordonate(puncte, n);
+	cout << distantaMaxima(puncte, n) << endl;
+	cout << ctDistMax(puncte, n, distantaMaxima(puncte, n));
+
+}
