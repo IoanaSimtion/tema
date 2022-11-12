@@ -17,3 +17,9 @@ struct coordonate {
 	int x;
 	int y;
 };
+
+struct dateElevi {
+	int cod;
+	int medie;
+	int absente;
+};

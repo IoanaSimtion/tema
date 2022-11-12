@@ -1,4 +1,4 @@
-using namespace std;
+﻿using namespace std;
 #include <iostream>
 #include <fstream>
 #include <math.h>
@@ -163,4 +163,65 @@ int ctDistMax(coordonate punct[], int n, float dMax) {
 		}
 	}
 	return ct;
+}
+
+//todo functie ce citeste datele elevilor
+
+void citireDateElevi(dateElevi elev[], int& n) {
+	ifstream f("citireElevi.txt");
+	f >> n;
+	for (int i = 0; i < n; i++) {
+		f >> elev[i].cod;
+		f >> elev[i].medie;
+		f >> elev[i].absente;
+	}
+}
+
+//todo functie ce returneaza nr de elevi cu media 10
+
+int ctMedie(dateElevi elev[], int n) {
+	int ct = 0;
+	for (int i = 0; i < n; i++) {
+		if (elev[i].medie == 10) {
+			ct++;
+		}
+	}
+	return ct;
+}
+
+//todo functie ce returneaza media clasei
+
+int mediaClasei(dateElevi elev[], int n) {
+	int suma = 0;
+	for (int i = 0; i < n; i++) {
+		suma = suma + elev[i].medie;
+	}
+	return suma / n;
+}
+
+//todo functie ce determina primii 2 elevi după absențe
+
+void maximAbsente(dateElevi elev[], int& a, int& b, int n) {
+	int max1=0, max2=0;
+	for (int i = 0; i < n; i++) {
+		if (elev[i].absente > max1) {
+			max2 = max1;
+			max1 = elev[i].absente;
+			a = i;
+		}
+		else {
+			if (elev[i].absente == max1) {
+				if (elev[i].cod > elev[a].cod) {
+					max2 = max1;
+					max1 = elev[i].absente;
+					b = a;
+					a = i;
+				}
+			}
+			else {
+				max2 = elev[i].absente;
+				b = i;
+			}
+		}
+	}
 }

@@ -37,5 +37,26 @@ void sol3() {
 	citireCoordonate(puncte, n);
 	cout << distantaMaxima(puncte, n) << endl;
 	cout << ctDistMax(puncte, n, distantaMaxima(puncte, n));
+}
+
+/*3164: Se dau n, reprezentând numărul de elevi apoi, pe câte un rând, datele fiecărui elev: 
+codul, media la informatică și numărul de absențe.
+Definiți un tip structură pentru a putea memora datele unui elev și rezolvați cerințele:
+a) memorați datele tuturor elevilor într-un vector de structuri de tipul definit;
+b) afișați numărul de elevi cu media 10
+c) afișați media clasei (se va afișa doar partea întreagă a ei).
+d) afișați primii doi elevi după absențe (elevii cu cele mai multe absențe).
+Dacă sunt mai mulți elevi cu același număr de absențe se afișează în ordine crescătoare a codului. 
+Dacă sunt mai mult de doi elevi număr maxim de absențe se afișează doar doi.*/
+
+void sol4() {
+	int n, a, b;
+	dateElevi elevi[100];
+	citireDateElevi(elevi, n);
+	cout << ctMedie(elevi, n) << endl;
+	cout << mediaClasei(elevi, n) << endl;
+	maximAbsente(elevi, a, b, n);
+	cout << elevi[a].cod << ' ' << elevi[a].medie << ' ' << elevi[a].absente << endl;
+	cout << elevi[b].cod << ' ' << elevi[b].medie << ' ' << elevi[b].absente << endl;
 
 }
